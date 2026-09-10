@@ -19,7 +19,7 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/25 z-0"></div>
 
-        {/* Contenuto: badge + titolo + sottotitolo + bottone, tutto dentro l'hero */}
+        {/* Contenuto: badge + titolo + sottotitolo dentro l'hero */}
         <div className="relative z-10 w-full max-w-3xl flex flex-col items-center gap-4 sm:gap-5 md:gap-6">
           <div className="inline-flex items-center justify-center px-4 py-2 rounded-full border border-brand-sage/60 bg-brand-sage/80 backdrop-blur-md shadow-sm">
             <span className="text-[10px] md:text-xs font-semibold tracking-widest uppercase text-white text-center">1ª Miamo Lounge di Brescia</span>
@@ -30,11 +30,15 @@ export default function Home() {
           <p className="text-sm sm:text-base md:text-lg text-white/90 font-light max-w-2xl px-2 drop-shadow-md">
             Un'oasi di pace dedicata alla cura del viso, del corpo e al riequilibrio interiore. Protocolli avanzati e cosmeceutica d'élite.
           </p>
-          <Link href="/servizi" className="mt-2 bg-white text-brand-dark px-6 py-4 md:px-8 rounded-md uppercase tracking-widest text-xs md:text-sm font-semibold hover:bg-brand-light transition-all flex items-center gap-2 shadow-lg">
-            Scopri i nostri trattamenti <ArrowRight className="w-4 h-4" />
-          </Link>
         </div>
       </section>
+
+      {/* Bottone fuori dall'immagine, sotto — colore del logo su sfondo bianco */}
+      <div className="w-full bg-white flex justify-center px-4 py-8 md:py-10">
+        <Link href="/servizi" className="bg-white text-brand-teal border-2 border-brand-teal px-6 py-4 md:px-8 rounded-md uppercase tracking-widest text-xs md:text-sm font-semibold hover:bg-brand-teal hover:text-white transition-all flex items-center gap-2 shadow-md">
+          Scopri i nostri trattamenti <ArrowRight className="w-4 h-4" />
+        </Link>
+      </div>
 
       {/* Presentazione */}
       <section className="w-full max-w-6xl mx-auto py-16 md:py-24 px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
