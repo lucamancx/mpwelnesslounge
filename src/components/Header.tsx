@@ -9,7 +9,18 @@ export function Header() {
 
   return (
     <header className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-border h-20 flex items-center px-6 md:px-12">
-      <div className="flex-1">
+      {/* Mobile: hamburger a sinistra */}
+      <div className="flex-1 flex items-center md:hidden">
+        <button 
+          className="p-2 text-brand-dark" 
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
+      </div>
+
+      {/* Desktop: logo a sinistra */}
+      <div className="hidden md:flex flex-1">
         <Link href="/" className="font-serif text-2xl font-semibold text-brand-dark">MP</Link>
       </div>
       
@@ -22,16 +33,12 @@ export function Header() {
         <Link href="/specialisti" className="hover:text-brand-teal transition-colors">Specialisti</Link>
       </nav>
       
+      {/* Mobile: logo a destra | Desktop: prenota a destra */}
       <div className="flex-1 flex justify-end items-center gap-4">
+        <Link href="/" className="font-serif text-2xl font-semibold text-brand-dark md:hidden">MP</Link>
         <Link href="/prenota" className="hidden md:inline-block bg-brand-dark text-white px-6 py-2 rounded-md text-sm uppercase tracking-wider hover:bg-brand-teal transition-colors">
           Prenota
         </Link>
-        <button 
-          className="md:hidden p-2 text-brand-dark" 
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
       </div>
 
       {/* Mobile Nav Overlay */}

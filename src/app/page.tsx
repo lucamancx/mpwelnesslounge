@@ -6,16 +6,16 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center">
       {/* Hero Section */}
-      <section className="w-full py-24 md:py-40 flex flex-col items-center text-center px-4 relative overflow-hidden">
+      <section className="w-full aspect-[9/16] md:aspect-auto md:py-40 flex flex-col items-center text-center px-4 relative overflow-hidden">
         <Image 
           src="/hero-bg.png"
           alt="Maderoterapia MP Wellness Lounge"
           fill
-          className="object-cover object-center absolute inset-0 z-0"
+          className="object-cover object-top absolute inset-0 z-0"
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/10 z-0"></div>
-        <div className="z-10 max-w-3xl flex flex-col items-center">
+        <div className="z-10 w-full max-w-3xl flex flex-col items-center flex-1 justify-center pb-12 md:pb-0">
           <div className="mb-6 inline-flex items-center justify-center px-4 py-2 rounded-full border border-white/30 bg-white/10 backdrop-blur-md shadow-sm">
             <span className="text-[10px] md:text-xs font-semibold tracking-widest uppercase text-brand-light text-center">1ª Miamo Lounge di Brescia</span>
           </div>

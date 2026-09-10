@@ -18,6 +18,9 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: "MP Wellness Lounge | Brescia",
   description: "La prima Miamo Lounge della provincia di Brescia. Trattamenti viso, corpo, maderoterapia e consulenze specialistiche.",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
