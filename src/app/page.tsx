@@ -5,37 +5,32 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="flex flex-col items-center">
-      {/* Hero Section */}
-      <section className="w-full flex flex-col items-center">
-        {/* Foto al suo formato reale (16:9), non a schermo intero */}
-        <div className="relative w-full max-w-5xl aspect-[1024/547] overflow-hidden">
-          <Image
-            src="/hero-bg.png"
-            alt="Maderoterapia MP Wellness Lounge"
-            fill
-            sizes="(max-width: 1024px) 100vw, 1024px"
-            className="object-cover object-center"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/10"></div>
+      {/* Hero Section — full screen, mobile friendly */}
+      <section className="relative w-full h-[82svh] min-h-[520px] md:h-[calc(100svh-4rem)] flex flex-col items-center justify-center text-center px-4 overflow-hidden">
+        {/* Foto: riempie l'hero, scala bilanciata per non risultare sgranata */}
+        <Image
+          src="/hero-bg.png"
+          alt="Maderoterapia MP Wellness Lounge"
+          fill
+          sizes="100vw"
+          quality={90}
+          className="object-cover object-center z-0"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/25 z-0"></div>
 
-          {/* Contenuto sopra la foto */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-            <div className="mb-3 md:mb-6 inline-flex items-center justify-center px-4 py-2 rounded-full border border-brand-sage/60 bg-brand-sage/80 backdrop-blur-md shadow-sm">
-              <span className="text-[10px] md:text-xs font-semibold tracking-widest uppercase text-white text-center">1ª Miamo Lounge di Brescia</span>
-            </div>
-            <h1 className="font-serif text-2xl sm:text-4xl md:text-6xl text-white mb-2 md:mb-5 leading-tight drop-shadow-lg">
-              L'Eccellenza del Benessere
-            </h1>
-            <p className="text-xs sm:text-base md:text-lg text-white/90 font-light max-w-2xl px-2 drop-shadow-md">
-              Un'oasi di pace dedicata alla cura del viso, del corpo e al riequilibrio interiore. Protocolli avanzati e cosmeceutica d'élite.
-            </p>
+        {/* Contenuto: badge + titolo + sottotitolo + bottone, tutto dentro l'hero */}
+        <div className="relative z-10 w-full max-w-3xl flex flex-col items-center gap-4 sm:gap-5 md:gap-6">
+          <div className="inline-flex items-center justify-center px-4 py-2 rounded-full border border-brand-sage/60 bg-brand-sage/80 backdrop-blur-md shadow-sm">
+            <span className="text-[10px] md:text-xs font-semibold tracking-widest uppercase text-white text-center">1ª Miamo Lounge di Brescia</span>
           </div>
-        </div>
-
-        {/* Bottone sotto la foto, fuori dall'immagine */}
-        <div className="py-8 md:py-10 flex justify-center px-4">
-          <Link href="/servizi" className="bg-brand-dark text-white px-6 py-4 md:px-8 rounded-md uppercase tracking-widest text-xs md:text-sm font-semibold hover:bg-brand-teal transition-all flex items-center gap-2 shadow-lg">
+          <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl text-white leading-tight drop-shadow-lg">
+            L'Eccellenza del Benessere
+          </h1>
+          <p className="text-sm sm:text-base md:text-lg text-white/90 font-light max-w-2xl px-2 drop-shadow-md">
+            Un'oasi di pace dedicata alla cura del viso, del corpo e al riequilibrio interiore. Protocolli avanzati e cosmeceutica d'élite.
+          </p>
+          <Link href="/servizi" className="mt-2 bg-white text-brand-dark px-6 py-4 md:px-8 rounded-md uppercase tracking-widest text-xs md:text-sm font-semibold hover:bg-brand-light transition-all flex items-center gap-2 shadow-lg">
             Scopri i nostri trattamenti <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
