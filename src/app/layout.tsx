@@ -19,7 +19,8 @@ export const metadata: Metadata = {
   title: "MP Wellness Lounge | Brescia",
   description: "La prima Miamo Lounge della provincia di Brescia. Trattamenti viso, corpo, maderoterapia e consulenze specialistiche.",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/logo.png",
+    apple: "/logo.png",
   },
 };
 

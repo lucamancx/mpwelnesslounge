@@ -7,6 +7,7 @@
 @theme inline {
   --color-brand-dark: #164638;
   --color-brand-teal: #4A6B69;
+  --color-brand-sage: #5F8C8A;
   --color-brand-light: #F9FAF9;
 
   --color-background: var(--background);

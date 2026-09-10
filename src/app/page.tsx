@@ -6,25 +6,31 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center">
       {/* Hero Section */}
-      <section className="w-full aspect-[9/16] md:aspect-auto md:py-40 flex flex-col items-center text-center px-4 relative overflow-hidden">
+      <section className="w-full aspect-[9/16] md:aspect-auto md:min-h-screen flex flex-col items-center text-center px-4 relative overflow-hidden">
         <Image 
           src="/hero-bg.png"
           alt="Maderoterapia MP Wellness Lounge"
           fill
-          className="object-cover object-top absolute inset-0 z-0"
+          className="object-cover object-center absolute inset-0 z-0"
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/10 z-0"></div>
-        <div className="z-10 w-full max-w-3xl flex flex-col items-center flex-1 justify-center pb-12 md:pb-0">
-          <div className="mb-6 inline-flex items-center justify-center px-4 py-2 rounded-full border border-white/30 bg-white/10 backdrop-blur-md shadow-sm">
-            <span className="text-[10px] md:text-xs font-semibold tracking-widest uppercase text-brand-light text-center">1ª Miamo Lounge di Brescia</span>
+
+        {/* Contenuto centrale */}
+        <div className="z-10 w-full max-w-3xl flex flex-col items-center justify-center flex-1 pb-32 md:pb-0">
+          <div className="mb-6 inline-flex items-center justify-center px-4 py-2 rounded-full border border-brand-sage/60 bg-brand-sage/80 backdrop-blur-md shadow-sm">
+            <span className="text-[10px] md:text-xs font-semibold tracking-widest uppercase text-white text-center">1ª Miamo Lounge di Brescia</span>
           </div>
           <h1 className="font-serif text-4xl md:text-7xl text-white mb-6 leading-tight drop-shadow-lg">
             L'Eccellenza del Benessere
           </h1>
-          <p className="text-base md:text-xl text-white/90 font-light max-w-2xl mb-10 px-2 drop-shadow-md">
+          <p className="text-base md:text-xl text-white/90 font-light max-w-2xl px-2 drop-shadow-md">
             Un'oasi di pace dedicata alla cura del viso, del corpo e al riequilibrio interiore. Protocolli avanzati e cosmeceutica d'élite.
           </p>
+        </div>
+
+        {/* Bottone in basso — mobile: fuori dall'immagine visiva */}
+        <div className="z-10 absolute bottom-8 left-0 right-0 flex justify-center">
           <Link href="/servizi" className="bg-white text-brand-dark px-6 py-4 md:px-8 md:py-4 rounded-md uppercase tracking-widest text-xs md:text-sm font-semibold hover:bg-brand-light transition-all flex items-center gap-2 shadow-lg">
             Scopri i nostri trattamenti <ArrowRight className="w-4 h-4" />
           </Link>

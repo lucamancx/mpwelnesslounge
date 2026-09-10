@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 export function Header() {
@@ -21,7 +22,9 @@ export function Header() {
 
       {/* Desktop: logo a sinistra */}
       <div className="hidden md:flex flex-1">
-        <Link href="/" className="font-serif text-2xl font-semibold text-brand-dark">MP</Link>
+        <Link href="/" className="flex items-center">
+          <Image src="/logo.png" alt="MP Wellness Lounge" width={52} height={52} className="rounded-full object-cover" />
+        </Link>
       </div>
       
       {/* Desktop Nav */}
@@ -35,7 +38,9 @@ export function Header() {
       
       {/* Mobile: logo a destra | Desktop: prenota a destra */}
       <div className="flex-1 flex justify-end items-center gap-4">
-        <Link href="/" className="font-serif text-2xl font-semibold text-brand-dark md:hidden">MP</Link>
+        <Link href="/" className="md:hidden flex items-center">
+          <Image src="/logo.png" alt="MP Wellness Lounge" width={44} height={44} className="rounded-full object-cover" />
+        </Link>
         <Link href="/prenota" className="hidden md:inline-block bg-brand-dark text-white px-6 py-2 rounded-md text-sm uppercase tracking-wider hover:bg-brand-teal transition-colors">
           Prenota
         </Link>
@@ -59,3 +64,4 @@ export function Header() {
     </header>
   );
 }
+
