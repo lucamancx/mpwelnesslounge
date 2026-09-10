@@ -91,6 +91,7 @@ export async function POST(request: Request) {
     return NextResponse.json({
       ok: true,
       eventId: event.id,
+      invited: event.invitedAttendee,
       service: service.name,
       start: start.toISO(),
       end: end.toISO(),

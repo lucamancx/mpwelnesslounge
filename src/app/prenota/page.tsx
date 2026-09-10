@@ -42,6 +42,7 @@ function PrenotaContent() {
     service: string;
     dateLabel: string;
     timeLabel: string;
+    invited: boolean;
   } | null>(null);
 
   const searchParams = useSearchParams();
@@ -129,6 +130,7 @@ function PrenotaContent() {
         service: data.service,
         dateLabel: data.dateLabel,
         timeLabel: data.timeLabel,
+        invited: Boolean(data.invited),
       });
       setStep(4);
     } catch {
@@ -455,7 +457,9 @@ function PrenotaContent() {
                   {confirmation.dateLabel} — ore {confirmation.timeLabel}
                 </p>
                 <p className="text-sm pt-3">
-                  Ti abbiamo inviato un&apos;email di conferma con l&apos;invito al calendario. A presto!
+                  {confirmation.invited
+                    ? "Ti abbiamo inviato un'email di conferma con l'invito al calendario. A presto!"
+                    : "Abbiamo registrato la tua richiesta. Ti contatteremo per confermare. A presto!"}
                 </p>
               </div>
               <a

@@ -86,21 +86,39 @@ export async function insertAppointment(params: {
   end: Date;
   attendeeEmail?: string;
   attendeeName?: string;
-}): Promise<{ id: string; htmlLink: string | null }> {
+}): Promise<{ id: string; htmlLink: string | null; invitedAttendee: boolean }> {
   const calendar = getCalendar();
+  const base: calendar_v3.Schema$Event = {
+    summary: params.summary,
+    description: params.description,
+    start: { dateTime: params.start.toISOString(), timeZone: BUSINESS_TZ },
+    end: { dateTime: params.end.toISOString(), timeZone: BUSINESS_TZ },
+    reminders: { useDefault: true },
+  };
+
+  // Con un service account su un calendario Gmail senza Workspace, aggiungere invitati
+  // può fallire (serve Domain-Wide Delegation). Proviamo con l'invitato e, se va male,
+  // ricadiamo su un evento senza invitati: la prenotazione non deve mai perdersi.
+  if (params.attendeeEmail) {
+    try {
+      const res = await calendar.events.insert({
+        calendarId: APPOINTMENTS_CALENDAR_ID,
+        sendUpdates: "all",
+        requestBody: {
+          ...base,
+          attendees: [{ email: params.attendeeEmail, displayName: params.attendeeName }],
+        },
+      });
+      return { id: res.data.id || "", htmlLink: res.data.htmlLink || null, invitedAttendee: true };
+    } catch (err) {
+      console.warn("[calendar] insert con invitato fallito, riprovo senza invitato:", err);
+    }
+  }
+
   const res = await calendar.events.insert({
     calendarId: APPOINTMENTS_CALENDAR_ID,
-    sendUpdates: params.attendeeEmail ? "all" : "none",
-    requestBody: {
-      summary: params.summary,
-      description: params.description,
-      start: { dateTime: params.start.toISOString(), timeZone: BUSINESS_TZ },
-      end: { dateTime: params.end.toISOString(), timeZone: BUSINESS_TZ },
-      attendees: params.attendeeEmail
-        ? [{ email: params.attendeeEmail, displayName: params.attendeeName }]
-        : undefined,
-      reminders: { useDefault: true },
-    },
+    sendUpdates: "none",
+    requestBody: base,
   });
-  return { id: res.data.id || "", htmlLink: res.data.htmlLink || null };
+  return { id: res.data.id || "", htmlLink: res.data.htmlLink || null, invitedAttendee: false };
 }
