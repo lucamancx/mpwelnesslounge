@@ -48,10 +48,11 @@ const categories = [
       { name: "Bendaggio Funzionale", time: "20 min", price: "€ 25" }
     ]
   },
-  {
+    {
     name: "Beauty Essentials",
     services: [
-      { name: "Pedicure", time: "60 min", price: "€ 45" }
+      { name: "Manicure", time: "60 min", price: "� 40" },
+      { name: "Pedicure", time: "60 min", price: "� 45" }
     ]
   }
 ];
