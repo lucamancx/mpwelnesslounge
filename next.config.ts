@@ -1,0 +1,22 @@
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'backend.drmax.it',
+      },
+      {
+        protocol: 'https',
+        hostname: 'miamo.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn11.bigcommerce.com',
+      },
+    ],
+  },
+};
+
+export default nextConfig;
