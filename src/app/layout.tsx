@@ -62,8 +62,22 @@ export default function RootLayout({
             </div>
             <div>
               <h4 className="font-medium uppercase tracking-wider mb-4">Contatti</h4>
-              <p className="text-sm opacity-80">Tel: +39 333 1234567</p>
-              <p className="text-sm opacity-80">Email: info@mpwellnesslounge.it</p>
+              <a href="tel:+393533583623" className="block text-sm opacity-80 hover:opacity-100 transition-opacity">Tel: +39 353 358 3623</a>
+              <a href="mailto:mpwellnesslounge@icloud.com" className="block text-sm opacity-80 hover:opacity-100 transition-opacity">Email: mpwellnesslounge@icloud.com</a>
+              <a
+                href="https://www.instagram.com/mp_wellneslounge"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram MP Wellness Lounge"
+                className="mt-4 inline-flex items-center gap-2 text-sm opacity-80 hover:opacity-100 transition-opacity"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden="true">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                </svg>
+                @mp_wellneslounge
+              </a>
             </div>
           </div>
           
